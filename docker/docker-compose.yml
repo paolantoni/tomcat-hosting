@@ -1,0 +1,46 @@
+version: '3'
+
+#CATALINA_BASE:   /usr/local/tomcat
+#CATALINA_HOME:   /usr/local/tomcat
+#CATALINA_TMPDIR: /usr/local/tomcat/temp
+#JRE_HOME:        /docker-java-home/jre
+
+services:
+ tomcat1:
+  file: common.yml
+  service: tomcat-8.5.23-jre8
+  environment:
+  - JAVA_OPTS=-Xms256m -Xmx2048m 
+  ports:
+  - "8081:8080"
+  volumes:
+  - ./tomcat/1/webapps:/usr/local/tomcat/webapps
+  - tomcat1_logs:/usr/local/tomcat/logs
+   
+ tomcat2:
+  file: common.yml
+  service: tomcat-8.5.23-jre8
+  environment:
+  - JAVA_OPTS=-Xms256m -Xmx2048m 
+  ports:
+  - "8082:8080"
+  volumes:
+  - ./tomcat/2/webapps:/usr/local/tomcat/webapps
+  - tomcat2_logs:/usr/local/tomcat/logs  
+
+ tomcat3:
+  file: common.yml
+  service: tomcat-8.5.23-jre8
+  environment:
+  - JAVA_OPTS=-Xms256m -Xmx2048m 
+  ports:
+  - "8083:8080"
+  volumes:
+  - ./tomcat/3/webapps:/usr/local/tomcat/webapps
+  - tomcat3_logs:/usr/local/tomcat/logs  
+
+   
+volumes:
+ tomcat1_logs:
+ tomcat2_logs:
+ tomcat3_logs:

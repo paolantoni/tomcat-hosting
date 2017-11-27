@@ -1,0 +1,7 @@
+version: '3'
+##here i set common definitions for all services.
+##since this should be a stack of tomcat i'm expecting they're running all the same version.
+
+services:
+ tomcat-8.5.23-jre8:
+  image: tomcat:8.5.23-jre8 
