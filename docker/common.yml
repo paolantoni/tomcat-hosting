@@ -4,4 +4,4 @@ version: '3'
 
 services:
  tomcat-8.5.23-jre8:
-  image: tomcat:8.5.23-jre8 
+  image: tomcat:${TOMCAT_VERSION} 
